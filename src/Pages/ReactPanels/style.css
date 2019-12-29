@@ -8,6 +8,7 @@
   width: 80%;
   margin: 0.5rem auto;
   padding: 0.5rem;
+  z-index: -1;
 }
 
 ::-webkit-scrollbar {
