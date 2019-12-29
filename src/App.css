@@ -1,0 +1,8 @@
+#canvas {
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+
+.row {
+  display: flex;
+}

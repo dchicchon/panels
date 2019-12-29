@@ -1,0 +1,15 @@
+.row {
+  display: flex;
+}
+
+#control {
+  background: white;
+  border: 1px solid black;
+  width: 80%;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
