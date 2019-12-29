@@ -225,7 +225,7 @@ class Panel extends React.Component {
         className="panel"
         style={{
           backgroundColor: `rgb(${this.state.red},${this.state.green},${this.state.blue})`,
-           // Might change this to rem later
+          // Might change this to rem later
           width: this.state.size,
           height: this.state.size,
           border: "1px solid black"
