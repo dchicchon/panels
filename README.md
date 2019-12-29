@@ -36,9 +36,7 @@ renderPanels = () => {
 
 In the future, I would like to create a control panel that will allow the user to change the functionality of the panels
 
-- Change the theme (red, green, blue tint)
 - Upload a picture that will then be rendered in some blocky interperative way on the page
-- Pause
 
 ## React Lifecycle
 
