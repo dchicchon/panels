@@ -84,6 +84,16 @@ constructor(props) {
 }
 ```
 
+Instead, you should update the state in the mounting of the component
+
+```javascript
+componentDidMount() {
+  this.setState({
+    [state]: value
+  })
+}
+```
+
 ## Future Goals
 
 In the future, I would like to create a control panel that will allow the user to change the functionality of the panels
