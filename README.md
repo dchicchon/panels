@@ -34,10 +34,6 @@ renderPanels = () => {
 };
 ```
 
-In the future, I would like to create a control panel that will allow the user to change the functionality of the panels
-
-- Upload a picture that will then be rendered in some blocky interperative way on the page
-
 ## React Lifecycle
 
 - [Lifecycle Docs](https://reactjs.org/docs/react-component.html)
@@ -87,3 +83,9 @@ constructor(props) {
     this.state={color: props.color}
 }
 ```
+
+## Future Goals
+
+In the future, I would like to create a control panel that will allow the user to change the functionality of the panels
+
+- Upload a picture that will then be rendered in some blocky interperative way on the page
