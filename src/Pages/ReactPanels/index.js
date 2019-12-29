@@ -10,7 +10,7 @@ class ReactPanels extends React.Component {
       panelsWidth: "",
       panelsHeight: "",
       reload: true,
-      size: 50,
+      size: 40,
       colorChoice: "red",
       colorVal: "",
       pause: false,
@@ -93,7 +93,7 @@ class ReactPanels extends React.Component {
             </select>
           </label>
           <label htmlFor="colorVal">
-            Initial Value (1-255)
+            Value (1-255)
             <input
               id="colorVal"
               name="colorVal"
@@ -130,7 +130,7 @@ class ReactPanels extends React.Component {
             Size
             <input
               type="range"
-              min="25"
+              min="15"
               max="75"
               step="5"
               name="size"
@@ -146,7 +146,7 @@ class ReactPanels extends React.Component {
           )}
         </div>
 
-        {this.renderPanels()}
+        <div id="panels">{this.renderPanels()}</div>
       </div>
     );
   }

@@ -73,7 +73,7 @@ class Panel extends React.Component {
 
   // Play/Pause now works but takes a couple of seconds to start again
   // componentDidUpdate(prevProps, prevState, snapshot)
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     // If we state newRed, newGreen, and newBlue out here, it gets goofed. Dont do
 
     if (this.props.pause !== prevProps.pause) {
@@ -199,37 +199,6 @@ class Panel extends React.Component {
       this.setState({
         size: this.props.size
       });
-      clearInterval(this.colorTime);
-      let time = Math.floor(Math.random() * (this.state.time * 1000)) + 1000;
-      this.colorTime = setInterval(() => {
-        // Here are the pigments
-        let newRed = this.state.red;
-        let newGreen = this.state.green;
-        let newBlue = this.state.blue;
-        if (newRed <= 25 || newGreen <= 25 || newBlue <= 25) {
-          this.setState({
-            increasing: true
-          });
-        } else if (newRed >= 225 || newGreen >= 225 || newBlue >= 225) {
-          this.setState({
-            increasing: false
-          });
-        }
-
-        if (this.state.increasing) {
-          this.setState({
-            red: newRed + this.state.increment,
-            green: newGreen + this.state.increment,
-            blue: newBlue + this.state.increment
-          });
-        } else {
-          this.setState({
-            red: newRed - this.state.increment,
-            green: newGreen - this.state.increment,
-            blue: newBlue - this.state.increment
-          });
-        }
-      }, time);
     }
 
     if (
@@ -256,6 +225,7 @@ class Panel extends React.Component {
         className="panel"
         style={{
           backgroundColor: `rgb(${this.state.red},${this.state.green},${this.state.blue})`,
+          // Might change this to rem later
           width: this.state.size,
           height: this.state.size,
           border: "1px solid black"

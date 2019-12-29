@@ -1,5 +1,7 @@
 # Panels
 
+![gif](assets/project.gif)
+
 ## Summary
 
 This is solely an artistic coding project dedicated to making cool background with code
@@ -93,6 +95,10 @@ componentDidMount() {
   })
 }
 ```
+
+## Stuck
+
+- Size feature not working properly
 
 ## Future Goals
 

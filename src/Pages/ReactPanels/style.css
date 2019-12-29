@@ -3,12 +3,25 @@
 }
 
 #control {
-  background: white;
+  background-color: rgba(0, 0, 0, 0.603);
+  color: white;
   border: 1px solid black;
   width: 80%;
   margin: 0.5rem auto;
   padding: 0.5rem;
-  z-index: -1;
+  position: relative;
+  z-index: 2000;
+}
+
+#control h3 {
+  float: left;
+}
+
+#panels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 ::-webkit-scrollbar {
