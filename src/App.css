@@ -3,6 +3,11 @@
   /* flex-direction: row; */
 }
 
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
 .row {
   display: flex;
 }

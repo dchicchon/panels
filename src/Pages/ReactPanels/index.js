@@ -11,8 +11,9 @@ class ReactPanels extends React.Component {
       panelsHeight: "",
       reload: true,
       size: 40,
-      colorChoice: "red",
-      colorVal: "",
+      red: "",
+      green: "",
+      blue: "",
       pause: false,
       time: 5,
       increment: 25
@@ -51,8 +52,9 @@ class ReactPanels extends React.Component {
         row.push(
           <Panel
             size={this.state.size}
-            colorChoice={this.state.colorChoice}
-            colorVal={this.state.colorVal}
+            red={this.state.red}
+            green={this.state.green}
+            blue={this.state.blue}
             pause={this.state.pause}
             increment={this.state.increment}
             time={this.state.time}
@@ -75,30 +77,51 @@ class ReactPanels extends React.Component {
     });
   };
 
+  // This does not do as expected. Actually sets a theme for all of the panels
+  random = () => {
+    this.setState({
+      size: 40,
+      pause: false,
+      time: 5,
+      increment: 25,
+      red: Math.floor(Math.random() * 250 - 50) + 50,
+      green: Math.floor(Math.random() * 250 - 50) + 50,
+      blue: Math.floor(Math.random() * 250 - 50) + 50
+    });
+  };
+
+  reset = () => {
+    console.log("Reset Page");
+  };
   render() {
     return (
       <div id="canvas">
         <div id="control">
           <h3>Control Panel</h3>
-          <label htmlFor="color">
-            Color
-            <select
-              value={this.state.colorChoice}
-              onChange={this.handleChange}
-              name="colorChoice"
-            >
-              <option value="red">Red</option>
-              <option value="green">Green</option>
-              <option value="blue">Blue</option>
-            </select>
-          </label>
-          <label htmlFor="colorVal">
-            Value (1-255)
+
+          {/* Instead of there just being one option,  I would like there to be multiple color option inputs */}
+          <label htmlFor="red">
+            Red
             <input
-              id="colorVal"
-              name="colorVal"
-              value={this.state.colorVal}
               onChange={this.handleChange}
+              value={this.state.red}
+              name="red"
+            />
+          </label>
+          <label htmlFor="green">
+            Green
+            <input
+              onChange={this.handleChange}
+              value={this.state.green}
+              name="green"
+            />
+          </label>
+          <label htmlFor="blue">
+            blue
+            <input
+              onChange={this.handleChange}
+              value={this.state.blue}
+              name="blue"
             />
           </label>
           <label htmlFor="time">
@@ -139,11 +162,15 @@ class ReactPanels extends React.Component {
               onChange={this.handleChange}
             />
           </label>
+
           {this.state.pause ? (
             <button onClick={this.controlPause}>Play</button>
           ) : (
             <button onClick={this.controlPause}>Pause</button>
           )}
+          <button onClick={this.random}>Random</button>
+          {/* Would like to create a reset button at some point */}
+          <button onClick={this.reset}>Reset</button>
         </div>
 
         <div id="panels">{this.renderPanels()}</div>

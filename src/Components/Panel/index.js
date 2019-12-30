@@ -6,9 +6,9 @@ class Panel extends React.Component {
     super(props);
     this.state = {
       size: null,
-      red: Math.floor(Math.random() * 200 - 50) + 50,
-      green: Math.floor(Math.random() * 200 - 50) + 50,
-      blue: Math.floor(Math.random() * 200 - 50) + 50,
+      red: Math.floor(Math.random() * 250 - 50) + 50,
+      green: Math.floor(Math.random() * 250 - 50) + 50,
+      blue: Math.floor(Math.random() * 250 - 50) + 50,
       increasing: true,
       increment: null,
       // Time in seconds
@@ -76,6 +76,11 @@ class Panel extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     // If we state newRed, newGreen, and newBlue out here, it gets goofed. Dont do
 
+    // Make this code more efficient later on, lots of repetitive code.
+    // make into function(pause = {this.state.pause},time = {this.state.time},increment={this.state.increment},size={this.state.size},colorVal={this.state.colorVal}) {
+    //
+    // }
+
     if (this.props.pause !== prevProps.pause) {
       this.setState({
         pause: this.props.pause
@@ -118,7 +123,7 @@ class Panel extends React.Component {
       }
     }
 
-    if (this.props.time !== prevProps.time && this.props.time > 0) {
+    if (this.props.time !== prevProps.time) {
       this.setState({
         time: this.props.time
       });
@@ -201,22 +206,31 @@ class Panel extends React.Component {
       });
     }
 
-    if (
-      this.props.colorChoice !== prevProps.colorChoice ||
-      (this.props.colorVal !== prevProps.colorVal &&
-        this.props.colorVal !== null)
-    ) {
+    // COLORS
+    // =======================
+
+    // This needs a submit button in the parent component. But I dont want this to change immediately on state change. Only on submission from the parent component
+    if (this.props.red !== prevProps.red) {
+      console.log(this.props.red);
       this.setState({
-        red: Math.floor(Math.random() * 200 - 50) + 50,
-        green: Math.floor(Math.random() * 200 - 50) + 50,
-        blue: Math.floor(Math.random() * 200 - 50) + 50
-      });
-      let colorChoice = this.props.colorChoice;
-      let colorVal = this.props.colorVal;
-      this.setState({
-        [colorChoice]: colorVal
+        red: this.props.red
       });
     }
+
+    if (this.props.green !== prevProps.green) {
+      console.log(this.props.green);
+      this.setState({
+        green: this.props.green
+      });
+    }
+
+    if (this.props.blue !== prevProps.blue) {
+      console.log(this.props.blue);
+      this.setState({
+        blue: this.props.blue
+      });
+    }
+    // =======================
   }
 
   render() {
